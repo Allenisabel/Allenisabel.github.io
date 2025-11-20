@@ -378,16 +378,9 @@ h1 {
 
 /* Responsive */
 @media (max-width: 600px) {
-    .board {
-        width: 95vw;
-        height: 95vw;
-    }
-
     .game-container {
-        padding: 1rem;
+        padding: 0.5rem;
         width: 100%;
-        height: 100vh;
-        justify-content: center;
         border-radius: 0;
     }
 }
