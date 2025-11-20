@@ -255,11 +255,28 @@ function checkDraw() {
 function endGame(isDraw) {
     gameActive = false;
     isAiThinking = false;
+    const modalP = document.querySelector('.modal-content p');
+
     if (isDraw) {
         winnerTitle.textContent = "平局!";
+        modalP.textContent = "势均力敌，再来一局吧！";
     } else {
-        const playerText = currentPlayer === 'black' ? '黑方' : '白方';
-        winnerTitle.textContent = `${playerText}获胜!`;
+        if (gameMode === 'pve') {
+            if (currentPlayer === 'white') {
+                // AI won (Player lost)
+                winnerTitle.textContent = "再接再厉";
+                modalP.textContent = "胜败乃兵家常事，少侠请重新来过！";
+            } else {
+                // Player won
+                winnerTitle.textContent = "恭喜获胜!";
+                modalP.textContent = "你的棋艺真是太棒了！";
+            }
+        } else {
+            // PvP
+            const playerText = currentPlayer === 'black' ? '黑方' : '白方';
+            winnerTitle.textContent = `${playerText}获胜!`;
+            modalP.textContent = "恭喜你赢得精彩的一局。";
+        }
     }
     modal.classList.remove('hidden');
 }
