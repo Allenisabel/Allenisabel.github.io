@@ -65,12 +65,13 @@ function placePiece(row, col, cell) {
 
 function switchTurn() {
     currentPlayer = currentPlayer === 'black' ? 'white' : 'black';
-    statusText.textContent = `${currentPlayer.charAt(0).toUpperCase() + currentPlayer.slice(1)}'s Turn`;
+    const playerText = currentPlayer === 'black' ? '黑方' : '白方';
+    statusText.textContent = `${playerText}回合`;
     playerIndicatorDot.style.backgroundColor = currentPlayer === 'black' ? 'var(--black-piece)' : 'var(--white-piece)';
 
     if (gameMode === 'pve' && currentPlayer === 'white' && gameActive) {
         isAiThinking = true;
-        statusText.textContent = "AI is thinking...";
+        statusText.textContent = "AI 思考中...";
         setTimeout(makeAiMove, 500); // Small delay for realism
     }
 }
@@ -255,9 +256,10 @@ function endGame(isDraw) {
     gameActive = false;
     isAiThinking = false;
     if (isDraw) {
-        winnerTitle.textContent = "It's a Draw!";
+        winnerTitle.textContent = "平局!";
     } else {
-        winnerTitle.textContent = `${currentPlayer.charAt(0).toUpperCase() + currentPlayer.slice(1)} Wins!`;
+        const playerText = currentPlayer === 'black' ? '黑方' : '白方';
+        winnerTitle.textContent = `${playerText}获胜!`;
     }
     modal.classList.remove('hidden');
 }
@@ -267,7 +269,7 @@ function restartGame() {
     isAiThinking = false;
     currentPlayer = 'black';
     boardState = Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null));
-    statusText.textContent = "Black's Turn";
+    statusText.textContent = "黑方回合";
     playerIndicatorDot.style.backgroundColor = 'var(--black-piece)';
     modal.classList.add('hidden');
     initBoard();
@@ -283,7 +285,7 @@ function toggleAiMode() {
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            Play vs Human
+            人人对战
         `;
     } else {
         gameMode = 'pvp';
@@ -294,7 +296,7 @@ function toggleAiMode() {
                 <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
                 <path d="M12 6v6l4 2"/>
             </svg>
-            Play vs AI
+            人机对战
         `;
     }
     restartGame();
@@ -323,21 +325,4 @@ function initGame() {
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            Play vs Human
-        `;
-    } else {
-        aiModeBtn.classList.remove('active');
-        aiControls.classList.add('hidden');
-        aiModeBtn.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
-                <path d="M12 6v6l4 2"/>
-            </svg>
-            Play vs AI
-        `;
-    }
-    restartGame();
-}
-
-// Start Game
 initGame();

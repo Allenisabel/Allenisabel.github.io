@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gomoku - Premium Five in a Row</title>
+    <title>五子棋 - 精品在线对战</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
-    
+
     <!-- Open Graph Tags for WeChat Sharing -->
-    <meta property="og:title" content="Gomoku - Premium Five in a Row">
-    <meta property="og:description" content="Play the classic game of Gomoku against a smart AI or a friend. Simple, elegant, and fun!">
+    <meta property="og:title" content="五子棋 - 精品在线对战">
+    <meta property="og:description" content="来一局经典的五子棋吧！挑战智能AI，或者与好友对战。简单、优雅、有趣！">
     <meta property="og:image" content="screenshot.png">
     <meta property="og:url" content="https://allenisabel.github.io/Allenisabel.github.io/">
     <meta property="og:type" content="website">
@@ -27,11 +27,11 @@
 
     <main class="game-container">
         <header class="game-header">
-            <h1>Gomoku</h1>
+            <h1>五子棋</h1>
             <div class="status-card">
                 <div class="player-indicator" id="player-indicator">
                     <span class="dot"></span>
-                    <span class="text" id="status-text">Black's Turn</span>
+                    <span class="text" id="status-text">黑方回合</span>
                 </div>
             </div>
         </header>
@@ -50,7 +50,7 @@
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3" />
                     </svg>
-                    Restart
+                    重新开始
                 </button>
                 <button id="ai-mode-btn" class="btn-secondary active">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -58,23 +58,23 @@
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    Play vs Human
+                    人机对战
                 </button>
             </div>
 
             <div id="ai-controls" class="ai-controls">
-                <label for="difficulty-select">Difficulty:</label>
+                <label for="difficulty-select">难度:</label>
                 <select id="difficulty-select">
-                    <option value="1">Level 1 (Easy)</option>
-                    <option value="2">Level 2</option>
-                    <option value="3">Level 3</option>
-                    <option value="4">Level 4 (Medium)</option>
-                    <option value="5" selected>Level 5</option>
-                    <option value="6">Level 6</option>
-                    <option value="7">Level 7 (Hard)</option>
-                    <option value="8">Level 8</option>
-                    <option value="9">Level 9</option>
-                    <option value="10">Level 10 (Expert)</option>
+                    <option value="1">等级 1 (简单)</option>
+                    <option value="2">等级 2</option>
+                    <option value="3">等级 3</option>
+                    <option value="4">等级 4 (中等)</option>
+                    <option value="5" selected>等级 5</option>
+                    <option value="6">等级 6</option>
+                    <option value="7">等级 7 (困难)</option>
+                    <option value="8">等级 8</option>
+                    <option value="9">等级 9</option>
+                    <option value="10">等级 10 (专家)</option>
                 </select>
             </div>
         </div>
@@ -82,10 +82,10 @@
 
     <div id="winner-modal" class="modal hidden">
         <div class="modal-content">
-            <h2 id="winner-title">Black Wins!</h2>
-            <p>Congratulations on a great game.</p>
-            <button id="modal-restart-btn" class="btn-primary">Play Again</button>
-            <button id="modal-close-btn" class="btn-secondary" style="margin-top: 10px;">Close</button>
+            <h2 id="winner-title">黑方获胜!</h2>
+            <p>恭喜你赢得精彩的一局。</p>
+            <button id="modal-restart-btn" class="btn-primary">再来一局</button>
+            <button id="modal-close-btn" class="btn-secondary" style="margin-top: 10px;">关闭</button>
         </div>
     </div>
 
