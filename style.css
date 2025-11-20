@@ -383,4 +383,12 @@ h1 {
         width: 100%;
         border-radius: 0;
     }
+
+    .blob {
+        display: none;
+    }
+
+    body {
+        background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    }
 }
