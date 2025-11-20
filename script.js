@@ -14,7 +14,7 @@ const modalCloseBtn = document.getElementById('modal-close-btn');
 let currentPlayer = 'black'; // 'black' or 'white'
 let gameActive = true;
 let boardState = Array(BOARD_SIZE).fill(null).map(() => Array(BOARD_SIZE).fill(null));
-let gameMode = 'pvp'; // 'pvp' or 'pve'
+let gameMode = 'pve'; // 'pvp' or 'pve'
 let aiDifficulty = 5;
 let isAiThinking = false;
 
