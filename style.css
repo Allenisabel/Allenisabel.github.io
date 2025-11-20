@@ -384,6 +384,11 @@ h1 {
         border-radius: 0;
     }
 
+    .board {
+        width: 92vw;
+        height: 92vw;
+    }
+
     .blob {
         display: none;
     }
